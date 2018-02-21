@@ -2,15 +2,19 @@
  * Implement a bank class.
  * <p>
  * In this lab we will model a bank. We have two classes: Bank and BankAccount. You should finish
- * both classes, by fixing checkstyle errors, defining constructors, getters and setters, and
+ * both classes, by fixing chechkstyle errors, defining constructors, getters and setters, and
  * accessing private variables.
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/8/">Lab 8 Description</a>
  */
 public class Bank {
-
-    public String bankName;
-
+    /**
+     *
+     */
+    private String bankName;
+    /**
+     *
+     */
     public Bank() {
         bankName = "Illini Bank";
     }
@@ -29,8 +33,14 @@ public class Bank {
         /*
          * Implement this function
          */
+        double accountBalance = 0;
+        accountBalance = bankAccount.getAccountBalance();
+        accountBalance -= amount;
+        if (accountBalance < 0) {
+            return false;
+        }
+        return true;
     }
-
     /**
      * Deposit money in an account.
      * <p>
@@ -45,6 +55,10 @@ public class Bank {
         /*
          * Implement this function
          */
+        double accountBalance = 0;
+        accountBalance = bankAccount.getAccountBalance();
+        accountBalance += amount;
+        return true;
     }
 
     /**
@@ -64,6 +78,14 @@ public class Bank {
         /*
          * Implement this function
          */
+        double balance1 = source.getAccountBalance();
+        double balance2 = destination.getAccountBalance();
+        balance1 -= amount;
+        balance2 += amount;
+        if (balance1 < 0) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -77,9 +99,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setOwnerName(name);
     }
 
-    public static int totalAccounts = 0;
+    /**
+     *
+     */
+    private static int totalAccounts = 0;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
@@ -89,6 +115,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return totalAccounts;
     }
 
     /**
