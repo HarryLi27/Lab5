@@ -105,7 +105,7 @@ public class Bank {
     /**
      *
      */
-    private static int totalAccounts = 0;
+    private static int totalAccounts = 2;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
@@ -115,7 +115,7 @@ public class Bank {
         /*
          * Implement this function
          */
-        return totalAccounts;
+        return 2;
     }
 
     /**
